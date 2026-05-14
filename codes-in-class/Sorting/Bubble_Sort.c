@@ -46,15 +46,18 @@ void imprimirVetor(int v[], int n){
     printf("]");
 }
 
-void bubbleSort(int v[], int n){
-    int tmp; // Variável temporária que vai auxiliar no processo de troca de valores
-    for (int i = 0; i < n - 1; i += 1){ // Serão feitas n - 1 varreduras (Exemplo: se o vetor for tamanho 10, 9 varreduras)
-        for (int j = 0; j < n - i - 1; j += 1){
-            if (v[j] > v[j + 1]){ // Se o antecessor for MAIOR que o seu sucessor...
-                tmp = v[j]; // ... A variável temporária assumirá o valor desse antecessor(elemento maior)...
-                v[j] = v[j + 1]; //... O antecessor irá assumir o valor do seu sucessor(elemento menor)...
-                v[j + 1] = tmp; //... E o elemento do índice do sucessor será o valor da variável temporária(elemento maior).
+void bubblesort (double v[], int n) {
+    int i, fim, pos, troca;
+    double chave;
+    troca = 1; fim = n - 2; pos = 0;
+    while (troca == 1) {
+        troca = 0;
+        for (i = 0; i <= fim; i++) {
+            if (v[i] > v[i+1]) {
+                chave = v[i]; v[i] = v[i+1]; v[i+1] = chave;
+                pos = i; troca = 1;
             }
         }
+        fim = pos-1;
     }
 }
